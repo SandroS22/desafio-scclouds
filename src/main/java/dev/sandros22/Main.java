@@ -5,26 +5,31 @@ import dev.sandros22.desafio.FibRecursivo;
 import dev.sandros22.desafio.PrimoRecursivo;
 import dev.sandros22.desafio.PrimoLinear;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        while (true) {
-            System.out.println("1 - Fibonacci\n2 - Primos\n0 - Encerrar");
-            System.out.print("Escolha uma opção: ");
-            Scanner scanner = new Scanner(System.in);
-            int choice = scanner.nextInt();
-            switch (choice) {
-                case 1:
-                    fib();
-                    return;
-                case 2:
-                    primos();
-                    return;
-                case 0:
-                    System.out.println("Encerrando...");
-                    return;
+        try {
+            while (true) {
+                System.out.println("1 - Fibonacci\n2 - Primos\n0 - Encerrar");
+                System.out.print("Escolha uma opção: ");
+                Scanner scanner = new Scanner(System.in);
+                int choice = scanner.nextInt();
+                switch (choice) {
+                    case 1:
+                        fib();
+                        return;
+                    case 2:
+                        primos();
+                        return;
+                    case 0:
+                        System.out.println("Encerrando...");
+                        return;
+                }
             }
+        } catch (InputMismatchException e) {
+            System.out.println("Entrada inválida");
         }
     }
 
